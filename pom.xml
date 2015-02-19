@@ -1,17 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>performance.test</groupId>
-    <artifactId>performance-test</artifactId>
-    <packaging>jar</packaging>
+    <groupId>no.svv.nvdb</groupId>
+    <artifactId>nvdbskriv-performance-test</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>performance-test</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <jersey.version>2.13</jersey.version>
         <jackson.version>2.3.2</jackson.version>
     </properties>
+
     <profiles>
+        <!-- Registrere, Slette, Oppdatere-->
         <profile>
             <id>reg_slett_opp</id>
             <build>
@@ -54,6 +55,7 @@
                 </plugins>
             </build>
         </profile>
+        <!-- Validation Errors -->
         <profile>
             <id>validationErrors</id>
             <build>

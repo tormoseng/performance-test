@@ -1,0 +1,86 @@
+<!-- 234 -> 297 / 3 -> 113 -> 297-->
+<jobb xmlns="http://nvdb.svv.no/api/inn/domain/representation" effektDato="2014-12-01" datakatalogversjon="2.01">
+  <registrer>
+    <vegObjekter>
+      <vegObjekt typeId="234" tempId="-1">
+        <egenskaper>
+          <egenskap typeId="4558">
+            <verdi>50</verdi>
+          </egenskap>
+          <egenskap typeId="9682">
+            <verdi>Tau</verdi>
+          </egenskap>
+          <egenskap typeId="1286">
+            <verdi>Flomsikring</verdi>
+          </egenskap>
+        </egenskaper>
+        <assosiasjoner>
+            <assosiasjon typeId="220210" tempId="-2"/>
+            <assosiasjon typeId="220439" tempId="-3"/>
+        </assosiasjoner>
+        <lokasjon>
+          <nettElementer>
+            <linje lenkeId="1125766" fra="0.3" til="0.4"/>
+          </nettElementer>
+        </lokasjon>
+      </vegObjekt>
+      <vegObjekt typeId="3" tempId="-2">
+          <egenskaper>
+              <egenskap typeId="1087">
+                  <verdi>Betong</verdi>
+              </egenskap>
+          </egenskaper>
+          <assosiasjoner>
+              <assosiasjon typeId="220459" tempId="-4"/>
+          </assosiasjoner>
+          <lokasjon>
+              <nettElementer>
+                  <linje lenkeId="1125766" fra="0.3" til="0.4"/>
+              </nettElementer>
+          </lokasjon>
+      </vegObjekt>
+        <vegObjekt typeId="297" tempId="-3">
+            <egenskaper>
+                <egenskap typeId="1086">
+                    <verdi>Kommentar</verdi>
+                </egenskap>
+            </egenskaper>
+            <lokasjon>
+                <nettElementer>
+                    <punkt lenkeId="1125766" posisjon="0.3"/>
+                </nettElementer>
+            </lokasjon>
+        </vegObjekt>
+      <vegObjekt typeId="113" tempId="-4">
+          <egenskaper>
+              <egenskap typeId="1591">
+                  <verdi>0</verdi>
+              </egenskap>
+              <egenskap typeId="7568">
+                  <verdi>5.0</verdi>
+              </egenskap>
+          </egenskaper>
+          <assosiasjoner>
+              <assosiasjon typeId="220292" tempId="-5"/>
+          </assosiasjoner>
+          <lokasjon>
+              <nettElementer>
+                  <linje lenkeId="1125766" fra="0.3" til="0.4"/>
+              </nettElementer>
+          </lokasjon>
+      </vegObjekt>
+        <vegObjekt typeId="297" tempId="-5">
+            <egenskaper>
+                <egenskap typeId="1086">
+                    <verdi>Kommentar</verdi>
+                </egenskap>
+            </egenskaper>
+            <lokasjon>
+                <nettElementer>
+                    <punkt lenkeId="1125766" posisjon="0.3"/>
+                </nettElementer>
+            </lokasjon>
+        </vegObjekt>
+    </vegObjekter>
+  </registrer>
+</jobb>

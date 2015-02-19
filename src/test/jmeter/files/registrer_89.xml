@@ -1,0 +1,80 @@
+<!-- 89 -> 165 / 90 -> 91 / 297-->
+<jobb xmlns="http://nvdb.svv.no/api/inn/domain/representation" effektDato="2014-12-01" datakatalogversjon="2.01">
+  <registrer>
+      <vegObjekter>
+          <vegObjekt typeId="89" tempId="-1">
+              <egenskaper>
+                  <egenskap typeId="1273">
+                      <enum>4876</enum>
+                  </egenskap>
+              </egenskaper>
+              <assosiasjoner>
+                  <assosiasjon typeId="200077" tempId="-3"/>
+                  <assosiasjon typeId="221790" tempId="-4"/>
+              </assosiasjoner>
+              <lokasjon>
+                  <nettElementer>
+                      <linje lenkeId="1125766" fra="0.3" til="0.4"/>
+                  </nettElementer>
+              </lokasjon>
+          </vegObjekt>
+          <vegObjekt typeId="91" tempId="-2">
+              <egenskaper>
+                  <egenskap typeId="1147">
+                      <enum>3006</enum>
+                  </egenskap>
+                  <egenskap typeId="1958">
+                      <enum>3017</enum>
+                  </egenskap>
+              </egenskaper>
+              <assosiasjoner>
+                  <assosiasjon typeId="220359" tempId="-5"/>
+              </assosiasjoner>
+              <lokasjon>
+                  <nettElementer>
+                      <punkt lenkeId="1125766" posisjon="0.3"/>
+                  </nettElementer>
+              </lokasjon>
+          </vegObjekt>
+          <vegObjekt typeId="90" tempId="-3">
+              <egenskaper>
+                  <egenskap typeId="1146">
+                      <verdi>Glass</verdi>
+                  </egenskap>
+              </egenskaper>
+              <assosiasjoner>
+                  <assosiasjon typeId="220078" tempId="-2"/>
+              </assosiasjoner>
+              <lokasjon>
+                  <nettElementer>
+                      <punkt lenkeId="1125766" posisjon="0.3"/>
+                  </nettElementer>
+              </lokasjon>
+          </vegObjekt>
+          <vegObjekt typeId="165" tempId="-4">
+              <egenskaper>
+                  <egenskap typeId="10406">
+                      <verdi>1999</verdi>
+                  </egenskap>
+              </egenskaper>
+              <lokasjon>
+                  <nettElementer>
+                      <punkt lenkeId="1125766" posisjon="0.3"/>
+                  </nettElementer>
+              </lokasjon>
+          </vegObjekt>
+          <vegObjekt typeId="297" tempId="-5">
+          <egenskaper>
+              <egenskap typeId="1086">
+                  <verdi>Kommentar</verdi>
+              </egenskap>
+          </egenskaper>
+          <lokasjon>
+              <nettElementer>
+                  <punkt lenkeId="1125766" posisjon="0.3"/>
+              </nettElementer>
+          </lokasjon>
+      </vegObjekt>
+      </vegObjekter>
+  </registrer>
+</jobb>

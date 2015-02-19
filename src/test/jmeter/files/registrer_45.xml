@@ -1,0 +1,84 @@
+<!-- 45 -> 297 / 65 -> 761 / 297 -->
+<jobb xmlns="http://nvdb.svv.no/api/inn/domain/representation" effektDato="2014-12-01" datakatalogversjon="2.01">
+  <registrer>
+    <vegObjekter>
+      <vegObjekt typeId="45" tempId="-1">
+        <egenskaper>
+          <egenskap typeId="9390">
+            <verdi>Kun manuell</verdi>
+          </egenskap>
+          <egenskap typeId="1078">
+            <verdi>Bomstasjonen</verdi>
+          </egenskap>
+          <egenskap typeId="9409">
+            <verdi>Ja</verdi>
+          </egenskap>
+        </egenskaper>
+        <assosiasjoner>
+            <assosiasjon typeId="220956" tempId="-2"/>
+            <assosiasjon typeId="220252" tempId="-3"/>
+        </assosiasjoner>
+        <lokasjon>
+          <nettElementer>
+            <punkt lenkeId="1125766" posisjon="0.3"/>
+          </nettElementer>
+        </lokasjon>
+      </vegObjekt>
+      <vegObjekt typeId="65" tempId="-2">
+          <egenskaper>
+              <egenskap typeId="1266">
+                  <verdi>Garasje</verdi>
+              </egenskap>
+              <egenskap typeId="1603">
+                  <verdi>Malt</verdi>
+              </egenskap>
+          </egenskaper>
+          <assosiasjoner>
+              <assosiasjon typeId="221647" tempId="-4"/>
+              <assosiasjon typeId="200258" tempId="-5"/>
+          </assosiasjoner>
+          <lokasjon>
+              <nettElementer>
+                  <punkt lenkeId="1125766" posisjon="0.3"/>
+              </nettElementer>
+          </lokasjon>
+      </vegObjekt>
+      <vegObjekt typeId="297" tempId="-3">
+          <egenskaper>
+              <egenskap typeId="1086">
+                  <verdi>Kommentar</verdi>
+              </egenskap>
+          </egenskaper>
+          <lokasjon>
+              <nettElementer>
+                  <punkt lenkeId="1125766" posisjon="0.3"/>
+              </nettElementer>
+          </lokasjon>
+      </vegObjekt>
+      <vegObjekt typeId="761" tempId="-4">
+          <egenskaper>
+              <egenskap typeId="7596">
+                  <enum>9890</enum>
+              </egenskap>
+          </egenskaper>
+          <lokasjon>
+              <nettElementer>
+                  <punkt lenkeId="1125766" posisjon="0.3"/>
+              </nettElementer>
+          </lokasjon>
+      </vegObjekt>
+        <vegObjekt typeId="297" tempId="-5">
+            <egenskaper>
+                <egenskap typeId="1086">
+                    <verdi>Kommentar</verdi>
+                </egenskap>
+            </egenskaper>
+            <lokasjon>
+                <nettElementer>
+                    <punkt lenkeId="1125766" posisjon="0.3"/>
+                </nettElementer>
+            </lokasjon>
+        </vegObjekt>
+    </vegObjekter>
+  </registrer>
+</jobb>

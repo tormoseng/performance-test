@@ -1,0 +1,51 @@
+<!-- 95 -> 297 / 96 -> 297 -->
+<jobb datakatalogversjon="2.01" xmlns="http://nvdb.svv.no/api/inn/domain/representation" effektDato="2014-12-01">
+    <registrer>
+        <vegObjekter>
+            <vegObjekt typeId="95" tempId="-1">
+                <egenskaper>
+                    <!-- 1876 = Oppsettingsutstyr -->
+                    <egenskap typeId="1876">
+                        <verdi>Gittermast</verdi>
+                    </egenskap>
+                    <!-- 1877 = Antall oppsettingsutstyr -->
+                    <egenskap typeId="1877">
+                        <verdi>1</verdi>
+                    </egenskap>
+                    <!-- 1671 = Fundamentering -->
+                    <egenskap typeId="1671">
+                        <verdi>I/på fjellfundament</verdi>
+                    </egenskap>
+                    <!-- 8772 = Avskjæringsledd -->
+                    <egenskap typeId="8772">
+                        <verdi>Ja</verdi>
+                    </egenskap>
+                    <!-- 4794 = Geometri, punkt -->
+                    <egenskap typeId="4794">
+                        <verdi>POINT (123 456)</verdi>
+                    </egenskap>
+                </egenskaper>
+                <lokasjon>
+                    <nettElementer>
+                        <punkt lenkeId="1125766" posisjon="0.3"/>
+                    </nettElementer>
+                </lokasjon>
+                <assosiasjoner>
+                    <assosiasjon typeId="220373" tempId="-2"/>
+                </assosiasjoner>
+            </vegObjekt>
+            <vegObjekt typeId="297" tempId="-2">
+                <egenskaper>
+                    <egenskap typeId="1086">
+                        <verdi>Dette er en kommentar til skiltpunktet</verdi>
+                    </egenskap>
+                </egenskaper>
+                <lokasjon>
+                    <nettElementer>
+                        <punkt lenkeId="1125766" posisjon="0.3"/>
+                    </nettElementer>
+                </lokasjon>
+            </vegObjekt>
+        </vegObjekter>
+    </registrer>
+</jobb>

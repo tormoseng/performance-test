@@ -1,0 +1,62 @@
+<!-- 508 -> 297 / 199 -> 294 / 297-->
+<jobb xmlns="http://nvdb.svv.no/api/inn/domain/representation" effektDato="2014-12-01" datakatalogversjon="2.01">
+  <registrer>
+    <vegObjekter>
+      <vegObjekt typeId="508" tempId="-1">
+          <egenskaper>
+              <egenskap typeId="4150">
+                  <verdi>Grøntareal</verdi>
+              </egenskap>
+          </egenskaper>
+          <assosiasjoner>
+              <assosiasjon typeId="220600" tempId="-3"/>
+              <assosiasjon typeId="220597" tempId="-4"/>
+          </assosiasjoner>
+          <lokasjon>
+              <nettElementer>
+                  <linje lenkeId="1125766" fra="0.3" til="0.4"/>
+              </nettElementer>
+          </lokasjon>
+      </vegObjekt>
+      <vegObjekt typeId="297" tempId="-3">
+          <egenskaper>
+              <egenskap typeId="1086">
+                  <verdi>Kommentar</verdi>
+              </egenskap>
+          </egenskaper>
+          <lokasjon>
+              <nettElementer>
+                  <punkt lenkeId="1125766" posisjon="0.3"/>
+              </nettElementer>
+          </lokasjon>
+      </vegObjekt>
+      <vegObjekt typeId="199" tempId="-4">
+          <egenskaper>
+              <egenskap typeId="4160">
+                  <verdi>Vintergrønne</verdi>
+              </egenskap>
+          </egenskaper>
+          <assosiasjoner>
+              <assosiasjon typeId="220405" tempId="-5"/>
+          </assosiasjoner>
+          <lokasjon>
+              <nettElementer>
+                  <linje lenkeId="1125766" fra="0.3" til="0.4"/>
+              </nettElementer>
+          </lokasjon>
+      </vegObjekt>
+        <vegObjekt typeId="297" tempId="-5">
+            <egenskaper>
+                <egenskap typeId="1086">
+                    <verdi>Kommentar</verdi>
+                </egenskap>
+            </egenskaper>
+            <lokasjon>
+                <nettElementer>
+                    <punkt lenkeId="1125766" posisjon="0.3"/>
+                </nettElementer>
+            </lokasjon>
+        </vegObjekt>
+    </vegObjekter>
+  </registrer>
+</jobb>

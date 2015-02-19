@@ -1,0 +1,1700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.6" jmeter="2.11 r1554548">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="NVDB API Skriv - Registrer_Slett_Oppdater" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Konfigurasjon" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="live" elementType="Argument">
+            <stringProp name="Argument.name">live</stringProp>
+            <stringProp name="Argument.value">false</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pause" elementType="Argument">
+            <stringProp name="Argument.name">pause</stringProp>
+            <stringProp name="Argument.value">500</stringProp>
+            <stringProp name="Argument.desc">live=5000, mock=500</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="server" elementType="Argument">
+            <stringProp name="Argument.name">server</stringProp>
+            <stringProp name="Argument.value">svvunvdbpoc09.vegvesen.no</stringProp>
+            <stringProp name="Argument.desc">live, sjekk init</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="port" elementType="Argument">
+            <stringProp name="Argument.name">port</stringProp>
+            <stringProp name="Argument.value">9090</stringProp>
+            <stringProp name="Argument.desc">live, sjekk init</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="throughput" elementType="Argument">
+            <stringProp name="Argument.name">throughput</stringProp>
+            <stringProp name="Argument.value">10000</stringProp>
+            <stringProp name="Argument.desc">Target throughput i kall per minutt</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="poll_intervall" elementType="Argument">
+            <stringProp name="Argument.name">poll_intervall</stringProp>
+            <stringProp name="Argument.value">5000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Time interval between polls</stringProp>
+          </elementProp>
+          <elementProp name="maxPolls" elementType="Argument">
+            <stringProp name="Argument.name">maxPolls</stringProp>
+            <stringProp name="Argument.value">5</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Max no of polls</stringProp>
+          </elementProp>
+          <elementProp name="apiPath" elementType="Argument">
+            <stringProp name="Argument.name">apiPath</stringProp>
+            <stringProp name="Argument.value">nvdb/apiskriv/api/jobber</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="username" elementType="Argument">
+            <stringProp name="Argument.name">username</stringProp>
+            <stringProp name="Argument.value">tbd</stringProp>
+            <stringProp name="Argument.desc">Settes i kjøring (for lokal kjøring)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="nvdbId" elementType="Argument">
+            <stringProp name="Argument.name">nvdbId</stringProp>
+            <stringProp name="Argument.value">1001</stringProp>
+            <stringProp name="Argument.desc">Settes i kjøring</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
+      </CookieManager>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Default" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">${server}</stringProp>
+        <stringProp name="HTTPSampler.port">${port}</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout">30000</stringProp>
+        <stringProp name="HTTPSampler.response_timeout">60000</stringProp>
+        <stringProp name="HTTPSampler.protocol">http</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Deafult" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Authorization</stringProp>
+            <stringProp name="Header.value">Basic ZXh0dHhtOkp1S2EwMTEy</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Accept</stringProp>
+            <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/xml</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">user-id</stringProp>
+            <stringProp name="Header.value">${username}</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Registrer_Slett_Oppdater" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1383135636000</longProp>
+        <longProp name="ThreadGroup.end_time">1383135636000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="VegObjektTypeId" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="filename">files/requestTypes.csv</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">typeId</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="LenkeId" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="filename">files/lenkeId.csv</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">lenkeId</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Throughput target" enabled="true">
+          <intProp name="calcMode">1</intProp>
+          <stringProp name="throughput">${throughput}</stringProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Init" enabled="true"/>
+        <hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="Init" enabled="true">
+            <stringProp name="BeanShellSampler.query">boolean liveB = Boolean.parseBoolean(vars.get(&quot;live&quot;));
+
+//Set username
+vars.put(&quot;username&quot;, System.getProperty(&quot;user.name&quot;));
+
+//Set server and port - if local
+if (!liveB) {
+	vars.put(&quot;server&quot;, &quot;localhost&quot;);
+	vars.put(&quot;port&quot;, &quot;8080&quot;);
+}</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters">${live},${server},${port}</stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Registrer vegObjekter" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </LoopController>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Registrer" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="registrer_create" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${__V(registrer_${typeId})}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/${apiPath}</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="TestPlan.comments">files/registrer_${typeId}.xml, /Users/tormos/Documents/svv/nvdb-api-inn/integration-test/src/test/performance/files/request_1.xml</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_create" enabled="true">
+                <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+
+String jobId = &quot;null&quot;;
+
+//201: Created
+if (ResponseCode != null &amp;&amp; ResponseCode.equals(&quot;201&quot;)){
+	try {
+		ObjectMapper mapper = new ObjectMapper();
+		ArrayNode array = mapper.readValue(responsedata, ArrayNode.class);
+		for (int i = 0; i &lt; array.size(); i++){
+			//status
+			if (array.get(i).findValue(&quot;rel&quot;).asText().equals(&quot;self&quot;)){
+				String selfUrl = array.get(i).findValue(&quot;src&quot;).asText();
+				String pattern = &quot;.*/nvdb/apiskriv/api/jobber/(.*)&quot;;
+				//String pattern = &quot;.*/nvdb-api/(.*)/.*&quot;;
+		          jobId = selfUrl.replaceAll(pattern, &quot;$1&quot;);
+		          break;
+			}
+		}
+	}
+	catch (Exception e){
+		System.err.println(&quot;ERROR in &apos;create&apos;: &quot; + e.getMessage());
+	}
+	finally {
+		Failure = false;
+		SampleResult.setDataType(jobId);
+	}
+}
+else {
+	Failure = true;
+}
+
+SampleResult.setDataType(jobId);
+
+//** JMETER VARIABLES **
+//Responskode
+vars.put(&quot;RESPONSE_CODE&quot;,ResponseCode);
+//jobID
+vars.put(&quot;jobID&quot;,jobId);
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Endre veglenkeId" enabled="true">
+                <stringProp name="cacheKey"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters">${typeId},${lenkeId}</stringProp>
+                <stringProp name="script">import org.apache.jmeter.services.FileServer;
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+
+String typeId = vars.get(&quot;typeId&quot;);
+String lenkeId = vars.get(&quot;lenkeId&quot;);
+
+//Hent fil til String
+String fileName = FileServer.getFileServer().getBaseDir() + &quot;/files/registrer_&quot; + typeId + &quot;.xml&quot;;
+File file = new File(fileName);
+String fileString = FileUtils.readFileToString(file, &quot;UTF-8&quot;);	
+
+String pattern = &quot;lenkeId=\&quot;1125766\&quot;&quot;;
+String request = fileString.replaceAll(pattern, &quot;lenkeId=\&quot;&quot; + lenkeId + &quot;\&quot;&quot;);
+
+String requestVar = &quot;registrer_&quot; + typeId;
+vars.put(requestVar, request);</stringProp>
+                <stringProp name="scriptLanguage">java</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Start" enabled="true">
+            <stringProp name="IfController.condition">${__javaScript(&quot;${RESPONSE_CODE}&quot; == &quot;201&quot;)}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Start" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="registrer_start" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}/start</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Code Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="49588">202</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_start" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">String jobId = vars.get(&quot;jobID&quot;);
+
+Failure = false;
+SampleResult.setDataType(jobId);
+
+//202: Accepted
+if (ResponseCode == null || ResponseCode.equals(&quot;202&quot;) == false){
+	Failure = true;
+}</stringProp>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters">${JobID}</stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Status" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="registrer_status" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}/status</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_status" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+String jobId = vars.get(&quot;jobID&quot;);
+boolean liveB = Boolean.parseBoolean(vars.get(&quot;live&quot;));
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+String fremdrift = &quot;ERROR&quot;;
+String resultatTekst = &quot;ERROR&quot;;
+
+try {
+	ObjectMapper mapper = new ObjectMapper();
+	JsonNode node = mapper.readValue(responsedata, JsonNode.class);
+	fremdrift = node.get(&quot;fremdrift&quot;).asText();
+
+	//UTFØRT eller KJØRER
+	if (fremdrift.toLowerCase().equals(&quot;UTFØRT&quot;.toLowerCase()) || fremdrift.toLowerCase().equals(&quot;KJØRER&quot;.toLowerCase())){
+		resultatTekst = fremdrift;
+		
+		//Get nvdbId for tempId -1
+		if (fremdrift.toLowerCase().equals(&quot;UTFØRT&quot;.toLowerCase())) {
+			ArrayNode vegObjekter = (ArrayNode) node.get(&quot;resultat&quot;).get(&quot;vegObjekter&quot;);
+			for (int i = 0; i &lt; vegObjekter.size(); i++){
+				if (vegObjekter.get(i).findValue(&quot;tempId&quot;).asInt() == -1){
+					String nvdbId = vegObjekter.get(i).findValue(&quot;nvdbId&quot;).asText();
+					vars.put(&quot;nvdbId&quot;, nvdbId);
+				}
+			}
+		}
+		//KJØRER - New poll
+		else {
+			//Set pollCounter
+			vars.put(&quot;pollCounter&quot;,&quot;0&quot;);
+		}
+		
+	}
+	//AVVIST
+	else if (fremdrift.toLowerCase().equals(&quot;AVVIST&quot;.toLowerCase())){
+		avvistAarsak = node.get(&quot;avvistårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + avvistAarsak;
+	
+	}
+	//VENTER
+	else if (fremdrift.toLowerCase().equals(&quot;VENTER&quot;.toLowerCase())){
+		venteAarsak = node.get(&quot;venteårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + venteAarsak;
+	
+	}
+
+}
+catch (Exception e){
+	System.err.println(&quot;ERROR in &apos;testcase_status&apos;: &quot; + e.getMessage());
+}
+//Assertion results
+finally {
+	if (ResponseCode.equals(&quot;200&quot;)){
+		Failure = false;
+		SampleResult.setResponseMessage(resultatTekst);
+		SampleResult.setDataType(jobId);
+	}
+	else {
+		Failure = true;
+		SampleResult.setDataType(jobId);
+		//FailureMessage = resultatTekst;
+	}
+}
+
+</stringProp>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters">${jobID},${live}</stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Get Status" enabled="true">
+                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                  <stringProp name="RegexExtractor.refname">statusJobb</stringProp>
+                  <stringProp name="RegexExtractor.regex">\&quot;fremdrift\&quot;:\&quot;(.+?)\&quot;</stringProp>
+                  <stringProp name="RegexExtractor.template">$1$</stringProp>
+                  <stringProp name="RegexExtractor.default">999</stringProp>
+                  <stringProp name="RegexExtractor.match_number">1</stringProp>
+                </RegexExtractor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Polling" enabled="true">
+              <stringProp name="WhileController.condition">${__javaScript(&quot;${statusJobb}&quot; == &quot;KJØRER&quot; &amp;&amp; &quot;${pollCounter}&quot; &lt; &quot;${maxPolls}&quot;)}</stringProp>
+              <stringProp name="TestPlan.comments">${__javaScript((&quot;${statusJobb}&quot; == &quot;KJØRER&quot; || &quot;${statusJobb}&quot; == &quot;VENTER&quot;) &amp;&amp; &quot;${pollCounter}&quot; &lt; &quot;${maxPolls}&quot;)}</stringProp>
+            </WhileController>
+            <hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Poll pause" enabled="true">
+                <stringProp name="IfController.condition">${__javaScript(&quot;${statusJobb}&quot; == &quot;KJØRER&quot; &amp;&amp; &quot;${pollCounter}&quot; &lt; &quot;${maxPolls}&quot;)}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+              </IfController>
+              <hashTree>
+                <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Pause" enabled="true">
+                  <intProp name="ActionProcessor.action">1</intProp>
+                  <intProp name="ActionProcessor.target">0</intProp>
+                  <stringProp name="ActionProcessor.duration">0</stringProp>
+                </TestAction>
+                <hashTree>
+                  <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+                    <stringProp name="ConstantTimer.delay">${poll_intervall}</stringProp>
+                  </ConstantTimer>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="registrer_poll" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}/status</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_poll" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+String jobId = vars.get(&quot;jobID&quot;);
+boolean liveB = Boolean.parseBoolean(vars.get(&quot;live&quot;));
+int pollCount = Integer.parseInt(vars.get(&quot;pollCounter&quot;));
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+String fremdrift = &quot;ERROR&quot;;
+String resultatTekst = &quot;ERROR&quot;;
+
+try {
+	//{&quot;mottatt&quot;:&quot;2014-11-16T20:03:33.981&quot;,&quot;fremdrift&quot;:&quot;KJØRER&quot;,&quot;resultat&quot;:{&quot;vegObjekter&quot;:[{&quot;tempId&quot;:&quot;-1&quot;}]},&quot;owner&quot;:&quot;tormos&quot;}
+	ObjectMapper mapper = new ObjectMapper();
+	JsonNode node = mapper.readValue(responsedata, JsonNode.class);
+	fremdrift = node.get(&quot;fremdrift&quot;).asText();
+
+	//UTFØRT eller KJØRER
+	if (fremdrift.toLowerCase().equals(&quot;UTFØRT&quot;.toLowerCase()) || fremdrift.toLowerCase().equals(&quot;KJØRER&quot;.toLowerCase())){
+		resultatTekst = fremdrift;
+		
+		//Get nvdbId for tempId -1
+		if (fremdrift.toLowerCase().equals(&quot;UTFØRT&quot;.toLowerCase())) {
+			ArrayNode vegObjekter = (ArrayNode) node.get(&quot;resultat&quot;).get(&quot;vegObjekter&quot;);
+			for (int i = 0; i &lt; vegObjekter.size(); i++){
+				if (vegObjekter.get(i).findValue(&quot;tempId&quot;).asInt() == -1){
+					String nvdbId = vegObjekter.get(i).findValue(&quot;nvdbId&quot;).asText();
+					if (liveB) {vars.put(&quot;nvdbId&quot;, nvdbId);}
+					else {vars.put(&quot;nvdbId&quot;, &quot;1001&quot;); }//1001 i Mock
+				}
+			}
+		}
+
+	}
+	//AVVIST
+	else if (fremdrift.toLowerCase().equals(&quot;AVVIST&quot;.toLowerCase())){
+		avvistAarsak = node.get(&quot;avvistårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + avvistAarsak;
+	
+	}
+	//VENTER
+	else if (fremdrift.toLowerCase().equals(&quot;VENTER&quot;.toLowerCase())){
+		venteAarsak = node.get(&quot;venteårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + venteAarsak;
+	
+	}
+	//Update poll								
+
+	String pollC = Integer.toString(pollCount + 1);
+	vars.put(&quot;pollCounter&quot;,pollC);
+
+}
+catch (Exception e){
+	System.err.println(&quot;ERROR in &apos;registrer_poll&apos;: &quot; + e.getMessage());
+}
+//Assertion results
+finally {
+	if (ResponseCode.equals(&quot;200&quot;)){
+		Failure = false;
+		SampleResult.setResponseMessage(resultatTekst);
+		SampleResult.setDataType(jobId);
+	}
+	else {
+		Failure = true;
+		SampleResult.setDataType(jobId);
+		vars.put(&quot;GLOBAL_ERROR&quot;,&quot;true&quot;);
+		//FailureMessage = resultatTekst;
+	}
+}</stringProp>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters">${jobID},${pollCounter},${live}</stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Get Status" enabled="true">
+                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                  <stringProp name="RegexExtractor.refname">statusJobb</stringProp>
+                  <stringProp name="RegexExtractor.regex">\&quot;fremdrift\&quot;:\&quot;(.+?)\&quot;</stringProp>
+                  <stringProp name="RegexExtractor.template">$1$</stringProp>
+                  <stringProp name="RegexExtractor.default">999</stringProp>
+                  <stringProp name="RegexExtractor.match_number">1</stringProp>
+                </RegexExtractor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Pause" enabled="true">
+          <stringProp name="TestPlan.comments">For at registrer skal kjøres ferdig</stringProp>
+        </GenericController>
+        <hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Pause" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${pause}</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Slett-Oppdater" enabled="true">
+          <intProp name="InterleaveControl.style">1</intProp>
+        </RandomController>
+        <hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Slett" enabled="true">
+            <stringProp name="IfController.condition">${__javaScript(&quot;${statusJobb}&quot; == &quot;UTFØRT&quot;)}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Registrer" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="slett_create" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">&lt;jobb xmlns=&quot;http://nvdb.svv.no/api/inn/domain/representation&quot; effektDato=&quot;2015-01-01&quot; datakatalogversjon=&quot;2.01&quot;&gt;&#xd;
+  &lt;slett&gt;&#xd;
+    &lt;vegObjekter&gt;&#xd;
+      &lt;vegObjekt typeId=&quot;${typeId}&quot; nvdbId=&quot;${nvdbId}&quot; versjon=&quot;1&quot;/&gt;&#xd;
+    &lt;/vegObjekter&gt;&#xd;
+  &lt;/slett&gt;&#xd;
+&lt;/jobb&gt;</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/${apiPath}</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="TestPlan.comments">${requestPath}/request_${requestNo}.xml, /Users/tormos/Documents/svv/nvdb-api-inn/integration-test/src/test/performance/files/request_1.xml</stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters">${nvdbId}</stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">boolean live = Boolean.parseBoolean(vars.get(&quot;live&quot;));
+
+//If lokal (mock)
+if (!live) {
+	vars.put(&quot;nvdbId&quot;, &quot;1001&quot;); //Oppdater
+}</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_create" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+
+String jobId = &quot;null&quot;;
+
+//201: Created
+if (ResponseCode != null &amp;&amp; ResponseCode.equals(&quot;201&quot;)){
+	try {
+		ObjectMapper mapper = new ObjectMapper();
+		ArrayNode array = mapper.readValue(responsedata, ArrayNode.class);
+		for (int i = 0; i &lt; array.size(); i++){
+			//status
+			if (array.get(i).findValue(&quot;rel&quot;).asText().equals(&quot;self&quot;)){
+				String selfUrl = array.get(i).findValue(&quot;src&quot;).asText();
+				String pattern = &quot;.*/nvdb/apiskriv/api/jobber/(.*)&quot;;
+				//String pattern = &quot;.*/nvdb-api/(.*)/.*&quot;;
+		          jobId = selfUrl.replaceAll(pattern, &quot;$1&quot;);
+		          //System.out.println(&quot;JOB: &quot; + jobId + &quot;, selfUrl: &quot; + selfUrl + &quot;, PATTERN: &quot; + pattern);
+		          break;
+			}
+		}
+	}
+	catch (Exception e){
+		System.err.println(&quot;ERROR in &apos;create&apos;: &quot; + e.getMessage());
+	}
+	finally {
+		Failure = false;
+		SampleResult.setDataType(jobId);
+	}
+}
+else {
+	Failure = true;
+}
+
+//** JMETER VARIABLES **
+//Responskode
+vars.put(&quot;RESPONSE_CODE&quot;,ResponseCode);
+//jobID
+vars.put(&quot;jobID&quot;,jobId);
+</stringProp>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Start" enabled="true">
+              <stringProp name="IfController.condition">${__javaScript(&quot;${RESPONSE_CODE}&quot; == &quot;201&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Start" enabled="true"/>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="slett_start" enabled="true">
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}/start</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Code Assertion" enabled="true">
+                    <collectionProp name="Asserion.test_strings">
+                      <stringProp name="49588">202</stringProp>
+                    </collectionProp>
+                    <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                    <boolProp name="Assertion.assume_success">false</boolProp>
+                    <intProp name="Assertion.test_type">2</intProp>
+                  </ResponseAssertion>
+                  <hashTree/>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_start" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">String jobId = vars.get(&quot;jobID&quot;);
+
+Failure = false;
+SampleResult.setDataType(jobId);
+
+//202: Accepted
+if (ResponseCode == null || ResponseCode.equals(&quot;202&quot;) == false){
+	Failure = true;
+}</stringProp>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters">${JobID}</stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+              <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Status" enabled="true"/>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="slett_status" enabled="true">
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}/status</stringProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_status" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+String jobId = vars.get(&quot;jobID&quot;);
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+String fremdrift = &quot;ERROR&quot;;
+String resultatTekst = &quot;ERROR&quot;;
+
+try {
+	ObjectMapper mapper = new ObjectMapper();
+	JsonNode node = mapper.readValue(responsedata, JsonNode.class);
+	fremdrift = node.get(&quot;fremdrift&quot;).asText();
+
+	//UTFØRT
+	if (fremdrift.toLowerCase().equals(&quot;UTFØRT&quot;.toLowerCase())){
+		resultatTekst = fremdrift;
+		
+	}
+	//AVVIST
+	else if (fremdrift.toLowerCase().equals(&quot;AVVIST&quot;.toLowerCase())){
+		avvistAarsak = node.get(&quot;avvistårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + avvistAarsak;
+		ResponseData = responsedata;
+	}
+	//VENTER
+	else if (fremdrift.toLowerCase().equals(&quot;VENTER&quot;.toLowerCase())){
+		venteAarsak = node.get(&quot;venteårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + venteAarsak;
+	
+	}
+	//KJØRER
+	else if (fremdrift.toLowerCase().equals(&quot;KJØRER&quot;.toLowerCase())){
+		resultatTekst = fremdrift;
+		//New poll
+		vars.put(&quot;pollCounter&quot;,&quot;0&quot;);	
+	}
+	
+}
+catch (Exception e){
+	System.err.println(&quot;ERROR in &apos;testcase_status&apos;: &quot; + e.getMessage());
+}
+//Assertion results
+finally {
+	if (ResponseCode.equals(&quot;200&quot;)){
+		Failure = false;
+		SampleResult.setResponseMessage(resultatTekst);
+		SampleResult.setDataType(jobId);
+	}
+	else {
+		Failure = true;
+		SampleResult.setDataType(jobId);
+		//FailureMessage = resultatTekst;
+	}
+}
+
+</stringProp>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters">${jobID}</stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                  <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Get Status" enabled="true">
+                    <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                    <stringProp name="RegexExtractor.refname">statusJobb</stringProp>
+                    <stringProp name="RegexExtractor.regex">\&quot;fremdrift\&quot;:\&quot;(.+?)\&quot;</stringProp>
+                    <stringProp name="RegexExtractor.template">$1$</stringProp>
+                    <stringProp name="RegexExtractor.default">999</stringProp>
+                    <stringProp name="RegexExtractor.match_number">1</stringProp>
+                  </RegexExtractor>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+              <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Polling" enabled="true">
+                <stringProp name="WhileController.condition">${__javaScript(&quot;${statusJobb}&quot; == &quot;KJØRER&quot; &amp;&amp; &quot;${pollCounter}&quot; &lt; &quot;${maxPolls}&quot;)}</stringProp>
+              </WhileController>
+              <hashTree>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Poll pause" enabled="true">
+                  <stringProp name="IfController.condition">${__javaScript(&quot;${statusJobb}&quot; == &quot;KJØRER&quot; &amp;&amp; &quot;${pollCounter}&quot; &lt; &quot;${maxPolls}&quot;)}</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Pause" enabled="true">
+                    <intProp name="ActionProcessor.action">1</intProp>
+                    <intProp name="ActionProcessor.target">0</intProp>
+                    <stringProp name="ActionProcessor.duration">0</stringProp>
+                  </TestAction>
+                  <hashTree>
+                    <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+                      <stringProp name="ConstantTimer.delay">${poll_intervall}</stringProp>
+                    </ConstantTimer>
+                    <hashTree/>
+                  </hashTree>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="slett_poll" enabled="true">
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}/status</stringProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_poll" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+String jobId = vars.get(&quot;jobID&quot;);
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+String fremdrift = &quot;ERROR&quot;;
+String resultatTekst = &quot;ERROR&quot;;
+
+try {
+	ObjectMapper mapper = new ObjectMapper();
+	JsonNode node = mapper.readValue(responsedata, JsonNode.class);
+	fremdrift = node.get(&quot;fremdrift&quot;).asText();
+
+	//UTFØRT eller KJØRER
+	if (fremdrift.toLowerCase().equals(&quot;UTFØRT&quot;.toLowerCase()) || fremdrift.toLowerCase().equals(&quot;KJØRER&quot;.toLowerCase())){
+		resultatTekst = fremdrift;
+		
+	}
+	//AVVIST
+	else if (fremdrift.toLowerCase().equals(&quot;AVVIST&quot;.toLowerCase())){
+		avvistAarsak = node.get(&quot;avvistårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + avvistAarsak;
+	
+	}
+	//VENTER
+	else if (fremdrift.toLowerCase().equals(&quot;VENTER&quot;.toLowerCase())){
+		venteAarsak = node.get(&quot;venteårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + venteAarsak;
+	
+	}
+	//Update poll
+	String pollC = Integer.toString(Integer.parseInt(vars.get(&quot;pollCounter&quot;)) + 1);
+	vars.put(&quot;pollCounter&quot;,pollC);
+}
+catch (Exception e){
+	System.err.println(&quot;ERROR in &apos;slett_poll&apos;: &quot; + e.printStackTrace()
+	//getMessage()
+	);
+}
+//Assertion results
+finally {
+	if (ResponseCode.equals(&quot;200&quot;)){
+		Failure = false;
+		SampleResult.setResponseMessage(resultatTekst);
+		SampleResult.setDataType(jobId);
+	}
+	else {
+		Failure = true;
+		SampleResult.setDataType(jobId);
+		vars.put(&quot;GLOBAL_ERROR&quot;,&quot;true&quot;);
+		//FailureMessage = resultatTekst;
+	}
+}</stringProp>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters">${jobID},${pollCounter}</stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                  <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Get Status" enabled="true">
+                    <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                    <stringProp name="RegexExtractor.refname">statusJobb</stringProp>
+                    <stringProp name="RegexExtractor.regex">\&quot;fremdrift\&quot;:\&quot;(.+?)\&quot;</stringProp>
+                    <stringProp name="RegexExtractor.template">$1$</stringProp>
+                    <stringProp name="RegexExtractor.default">999</stringProp>
+                    <stringProp name="RegexExtractor.match_number">1</stringProp>
+                  </RegexExtractor>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Oppdater" enabled="true">
+            <stringProp name="IfController.condition">${__javaScript(&quot;${statusJobb}&quot; == &quot;UTFØRT&quot;)}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Registrer" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="hent_jobb_for_oppdatering" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="LagOppdaterJobb" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+String nvdbid = vars.get(&quot;nvdbId&quot;);
+boolean live = Boolean.parseBoolean(vars.get(&quot;live&quot;));
+
+//If lokal (mock)
+if (!live) {
+	nvdbid = &quot;551800127&quot;; //Oppdater
+}
+
+try {
+	ObjectMapper mapper = new ObjectMapper();
+	JsonNode node = mapper.readValue(responsedata, JsonNode.class);
+	ArrayNode vegObjekter = (ArrayNode) node.get(&quot;registrer&quot;).get(&quot;vegObjekter&quot;);
+	JsonNode oppdaterObject = mapper.createObjectNode();
+	
+	//Endre tempId=-1 til nvdbId=X
+	for (int i = 0; i &lt; vegObjekter.size(); i++){
+		if (vegObjekter.get(i).get(&quot;tempId&quot;).asInt() == -1){
+			JsonNode vegObjekt = (JsonNode) vegObjekter.get(i);
+			vegObjekt.put(&quot;nvdbId&quot;, nvdbid);
+			vegObjekt.put(&quot;versjon&quot;,&quot;1&quot;);
+			//Fjern assosiasjoner og tempId
+			JsonNode assosiasjoner = vegObjekt.remove(&quot;assosiasjoner&quot;);
+			JsonNode tempId = vegObjekt.remove(&quot;tempId&quot;);
+			oppdaterObject = vegObjekt;
+			break;
+		}
+	}
+	//Endre fra registrer til oppdater
+	ObjectNode newJobb = mapper.createObjectNode();
+	ObjectNode newOppdaterObjekt = newJobb.putObject(&quot;oppdater&quot;);
+	ArrayNode newVegObjekter = newOppdaterObjekt.putArray(&quot;vegObjekter&quot;);
+	ArrayNode temp = newVegObjekter.add(oppdaterObject);
+
+	//newVegObjekt.set(&quot;oppdater&quot;, oppdater);
+	newJobb.put(&quot;effektDato&quot;, &quot;2015-01-01&quot;);
+	newJobb.put(&quot;datakatalogversjon&quot;, &quot;2.01&quot;);
+	//Lagre oppdaterJobb
+	vars.put(&quot;updateJobb&quot;, newJobb.toString());
+}
+catch (Exception e){
+	System.out.println(&quot;ERROR in &apos;Oppdater_HentJobb&apos;: &quot; + e.getMessage());
+}
+finally {
+	
+}
+</stringProp>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters">${nvdbId},${live}</stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Get Respons" enabled="false">
+                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                  <stringProp name="RegexExtractor.refname">fullUpdateJobb</stringProp>
+                  <stringProp name="RegexExtractor.regex">(.+)</stringProp>
+                  <stringProp name="RegexExtractor.template">$1$</stringProp>
+                  <stringProp name="RegexExtractor.default">999</stringProp>
+                  <stringProp name="RegexExtractor.match_number">1</stringProp>
+                </RegexExtractor>
+                <hashTree/>
+              </hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Lag oppdaterJobb" enabled="false">
+                <stringProp name="cacheKey"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters">${nvdbId},${fullUpdateJobb}</stringProp>
+                <stringProp name="script">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+//Response data
+//String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+String responsedata = vars.get(&quot;fullUpdateJobb&quot;);
+String nvdbid = vars.get(&quot;nvdbId&quot;);
+
+try {
+	ObjectMapper mapper = new ObjectMapper();
+	JsonNode node = mapper.readValue(responsedata, JsonNode.class);
+	ArrayNode vegObjekter = (ArrayNode) node.get(&quot;registrer&quot;).get(&quot;vegObjekter&quot;);
+	JsonNode oppdaterObject = mapper.createObjectNode();
+	System.out.println(&quot;-------size: &quot; + vegObjekter.size()+ &quot; ------------------------&quot;);
+	//System.out.println(&quot;VEGOBJEKTER: &quot; + &quot;&quot;);
+	//Endre tempId=-1 til nvdbId=X
+	for (int i = 0; i &lt; vegObjekter.size(); i++){
+		System.out.println(&quot;## &quot; + vegObjekter.get(i).get(&quot;typeId&quot;).asInt());
+		if (vegObjekter.get(i).get(&quot;tempId&quot;).asInt() == -1){
+			System.out.println(&quot;---&gt; &quot; + vegObjekter.get(i).get(&quot;typeId&quot;).asInt());
+			JsonNode vegObjekt = (JsonNode) vegObjekter.get(i);
+			vegObjekt.put(&quot;nvdbId&quot;, nvdbid);
+			vegObjekt.put(&quot;versjon&quot;,&quot;1&quot;);
+			//Fjern assosiasjoner og tempId
+			JsonNode assosiasjoner = vegObjekt.remove(&quot;assosiasjoner&quot;);
+			JsonNode tempId = vegObjekt.remove(&quot;tempId&quot;);
+			oppdaterObject = vegObjekt;
+		}
+		else {
+			//System.out.println(&quot;** &quot; + i + &quot; vegObjekt: &quot; + vegObjekter.get(i).toString());
+			//Fjern andre enn tempId=-1
+			//vegObjekter.remove(i);
+		}
+	}
+	//System.out.println(&quot;!! vegObjekter: &quot; + vegObjekter.toString());
+	//Endre fra registrer til oppdater
+	//JsonNode registrer = node.remove(&quot;registrer&quot;);
+	ObjectNode newJobb = mapper.createObjectNode();
+	ObjectNode newOppdaterObjekt = newJobb.putObject(&quot;oppdater&quot;);
+	ArrayNode newVegObjekter = newOppdaterObjekt.putArray(&quot;vegObjekter&quot;);
+	ArrayNode temp = newVegObjekter.add(oppdaterObject);
+	//ObjectNode newVegObjekt = newVegObjekter.addObject();
+
+	//newVegObjekt.set(&quot;oppdater&quot;, oppdater);
+	newJobb.put(&quot;effektDato&quot;, &quot;2015-01-01&quot;);
+	newJobb.put(&quot;datakatalogversjon&quot;, &quot;2.01&quot;);
+	System.out.println(&quot;JOBB: &quot; + newJobb.toString());
+	//Lagre oppdaterJobb
+	vars.put(&quot;updateJobb&quot;, newJobb.toString());
+}
+catch (Exception e){
+	System.out.println(&quot;ERROR in &apos;Oppdater_HentJobb&apos;: &quot; + e.getMessage());
+}
+finally {
+	vars.put(&quot;fullUpdateJobb&quot;,&quot;empty&quot;);
+	vars.put(&quot;fullUpdateJobb&quot;,&quot;empty&quot;);
+}
+</stringProp>
+                <stringProp name="scriptLanguage">java</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="oppdater_create" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">${updateJobb}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/${apiPath}</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                <boolProp name="HTTPSampler.monitor">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="TestPlan.comments">${requestPath}/request_${requestNo}.xml, /Users/tormos/Documents/svv/nvdb-api-inn/integration-test/src/test/performance/files/request_1.xml</stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_create" enabled="true">
+                  <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+
+String jobId = &quot;null&quot;;
+
+//201: Created
+if (ResponseCode != null &amp;&amp; ResponseCode.equals(&quot;201&quot;)){
+	try {
+		ObjectMapper mapper = new ObjectMapper();
+		ArrayNode array = mapper.readValue(responsedata, ArrayNode.class);
+		for (int i = 0; i &lt; array.size(); i++){
+			//status
+			if (array.get(i).findValue(&quot;rel&quot;).asText().equals(&quot;self&quot;)){
+				String selfUrl = array.get(i).findValue(&quot;src&quot;).asText();
+				String pattern = &quot;.*/nvdb/apiskriv/api/jobber/(.*)&quot;;
+				//String pattern = &quot;.*/nvdb-api/(.*)/.*&quot;;
+		          jobId = selfUrl.replaceAll(pattern, &quot;$1&quot;);
+		          break;
+			}
+		}
+	}
+	catch (Exception e){
+		System.err.println(&quot;ERROR in &apos;create&apos;: &quot; + e.getMessage());
+	}
+	finally {
+		Failure = false;
+		SampleResult.setDataType(jobId);
+	}
+}
+else {
+	Failure = true;
+}
+
+//** JMETER VARIABLES **
+//Responskode
+vars.put(&quot;RESPONSE_CODE&quot;,ResponseCode);
+//jobID
+vars.put(&quot;jobID&quot;,jobId);
+</stringProp>
+                  <stringProp name="BeanShellAssertion.filename"></stringProp>
+                  <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                  <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                </BeanShellAssertion>
+                <hashTree/>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/json</stringProp>
+                    </elementProp>
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Accept</stringProp>
+                      <stringProp name="Header.value">application/json</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Start" enabled="true">
+              <stringProp name="IfController.condition">${__javaScript(&quot;${RESPONSE_CODE}&quot; == &quot;201&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Start" enabled="true"/>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="oppdater_start" enabled="true">
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}/start</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Code Assertion" enabled="true">
+                    <collectionProp name="Asserion.test_strings">
+                      <stringProp name="49588">202</stringProp>
+                    </collectionProp>
+                    <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                    <boolProp name="Assertion.assume_success">false</boolProp>
+                    <intProp name="Assertion.test_type">2</intProp>
+                  </ResponseAssertion>
+                  <hashTree/>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_start" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">String jobId = vars.get(&quot;jobID&quot;);
+
+Failure = false;
+SampleResult.setDataType(jobId);
+
+//202: Accepted
+if (ResponseCode == null || ResponseCode.equals(&quot;202&quot;) == false){
+	Failure = true;
+}</stringProp>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters">${JobID}</stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+              <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Status" enabled="true"/>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="oppdater_status" enabled="true">
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}/status</stringProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_status" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+String jobId = vars.get(&quot;jobID&quot;);
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+String fremdrift = &quot;ERROR&quot;;
+String resultatTekst = &quot;ERROR&quot;;
+
+try {
+	ObjectMapper mapper = new ObjectMapper();
+	JsonNode node = mapper.readValue(responsedata, JsonNode.class);
+	fremdrift = node.get(&quot;fremdrift&quot;).asText();
+
+	//UTFØRT
+	if (fremdrift.toLowerCase().equals(&quot;UTFØRT&quot;.toLowerCase())){
+		resultatTekst = fremdrift;
+		
+	}
+	//AVVIST
+	else if (fremdrift.toLowerCase().equals(&quot;AVVIST&quot;.toLowerCase())){
+		avvistAarsak = node.get(&quot;avvistårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + avvistAarsak;
+		ResponseData = responsedata;
+	}
+	//VENTER
+	else if (fremdrift.toLowerCase().equals(&quot;VENTER&quot;.toLowerCase())){
+		venteAarsak = node.get(&quot;venteårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + venteAarsak;
+	
+	}
+	//KJØRER
+	else if (fremdrift.toLowerCase().equals(&quot;KJØRER&quot;.toLowerCase())){
+		resultatTekst = fremdrift;
+		//New poll
+		vars.put(&quot;pollCounter&quot;,&quot;0&quot;);	
+	}
+	
+}
+catch (Exception e){
+	System.err.println(&quot;ERROR in &apos;testcase_status&apos;: &quot; + e.getMessage());
+}
+//Assertion results
+finally {
+	if (ResponseCode.equals(&quot;200&quot;)){
+		Failure = false;
+		SampleResult.setResponseMessage(resultatTekst);
+		SampleResult.setDataType(jobId);
+	}
+	else {
+		Failure = true;
+		SampleResult.setDataType(jobId);
+		//FailureMessage = resultatTekst;
+	}
+}
+
+</stringProp>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters">${jobID}</stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                  <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Get Status" enabled="true">
+                    <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                    <stringProp name="RegexExtractor.refname">statusJobb</stringProp>
+                    <stringProp name="RegexExtractor.regex">\&quot;fremdrift\&quot;:\&quot;(.+?)\&quot;</stringProp>
+                    <stringProp name="RegexExtractor.template">$1$</stringProp>
+                    <stringProp name="RegexExtractor.default">999</stringProp>
+                    <stringProp name="RegexExtractor.match_number">1</stringProp>
+                  </RegexExtractor>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+              <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Polling" enabled="true">
+                <stringProp name="WhileController.condition">${__javaScript(&quot;${statusJobb}&quot; == &quot;KJØRER&quot; &amp;&amp; &quot;${pollCounter}&quot; &lt; &quot;${maxPolls}&quot;)}</stringProp>
+              </WhileController>
+              <hashTree>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Poll pause" enabled="true">
+                  <stringProp name="IfController.condition">${__javaScript(&quot;${statusJobb}&quot; == &quot;KJØRER&quot; &amp;&amp; &quot;${pollCounter}&quot; &lt; &quot;${maxPolls}&quot;)}</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Pause" enabled="true">
+                    <intProp name="ActionProcessor.action">1</intProp>
+                    <intProp name="ActionProcessor.target">0</intProp>
+                    <stringProp name="ActionProcessor.duration">0</stringProp>
+                  </TestAction>
+                  <hashTree>
+                    <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+                      <stringProp name="ConstantTimer.delay">${poll_intervall}</stringProp>
+                    </ConstantTimer>
+                    <hashTree/>
+                  </hashTree>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="oppdater_poll" enabled="true">
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/${apiPath}/${jobID}/status</stringProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Assertion_poll" enabled="true">
+                    <stringProp name="BeanShellAssertion.query">import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+String jobId = vars.get(&quot;jobID&quot;);
+
+//Response data
+String responsedata = new String(ResponseData, &quot;UTF-8&quot;);
+String fremdrift = &quot;ERROR&quot;;
+String resultatTekst = &quot;ERROR&quot;;
+
+try {
+	ObjectMapper mapper = new ObjectMapper();
+	JsonNode node = mapper.readValue(responsedata, JsonNode.class);
+	fremdrift = node.get(&quot;fremdrift&quot;).asText();
+
+	//UTFØRT eller KJØRER
+	if (fremdrift.toLowerCase().equals(&quot;UTFØRT&quot;.toLowerCase()) || fremdrift.toLowerCase().equals(&quot;KJØRER&quot;.toLowerCase())){
+		resultatTekst = fremdrift;
+		
+	}
+	//AVVIST
+	else if (fremdrift.toLowerCase().equals(&quot;AVVIST&quot;.toLowerCase())){
+		avvistAarsak = node.get(&quot;avvistårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + avvistAarsak;
+	
+	}
+	//VENTER
+	else if (fremdrift.toLowerCase().equals(&quot;VENTER&quot;.toLowerCase())){
+		venteAarsak = node.get(&quot;venteårsak&quot;).asText();
+		resultatTekst = fremdrift + &quot;.&quot; + venteAarsak;
+	
+	}
+	//Update poll
+	String pollC = Integer.toString(Integer.parseInt(vars.get(&quot;pollCounter&quot;)) + 1);
+	vars.put(&quot;pollCounter&quot;,pollC);
+}
+catch (Exception e){
+	System.err.println(&quot;ERROR in &apos;oppdater_poll&apos;: &quot; + e.getMessage());
+}
+//Assertion results
+finally {
+	if (ResponseCode.equals(&quot;200&quot;)){
+		Failure = false;
+		SampleResult.setResponseMessage(resultatTekst);
+		SampleResult.setDataType(jobId);
+	}
+	else {
+		Failure = true;
+		SampleResult.setDataType(jobId);
+		vars.put(&quot;GLOBAL_ERROR&quot;,&quot;true&quot;);
+		//FailureMessage = resultatTekst;
+	}
+}</stringProp>
+                    <stringProp name="BeanShellAssertion.filename"></stringProp>
+                    <stringProp name="BeanShellAssertion.parameters">${jobID},${pollCounter}</stringProp>
+                    <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+                  </BeanShellAssertion>
+                  <hashTree/>
+                  <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Get Status" enabled="true">
+                    <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                    <stringProp name="RegexExtractor.refname">statusJobb</stringProp>
+                    <stringProp name="RegexExtractor.regex">\&quot;fremdrift\&quot;:\&quot;(.+?)\&quot;</stringProp>
+                    <stringProp name="RegexExtractor.template">$1$</stringProp>
+                    <stringProp name="RegexExtractor.default">999</stringProp>
+                    <stringProp name="RegexExtractor.match_number">1</stringProp>
+                  </RegexExtractor>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename">results_registrer_slett_oppdater.jtl</stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

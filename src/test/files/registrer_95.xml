@@ -26,9 +26,7 @@
                     </egenskap>
                 </egenskaper>
                 <lokasjon>
-                    <nettElementer>
                         <punkt lenkeId="1125766" posisjon="0.3"/>
-                    </nettElementer>
                 </lokasjon>
                 <assosiasjoner>
                     <assosiasjon typeId="220373" tempId="-2"/>
@@ -41,9 +39,7 @@
                     </egenskap>
                 </egenskaper>
                 <lokasjon>
-                    <nettElementer>
                         <punkt lenkeId="1125766" posisjon="0.3"/>
-                    </nettElementer>
                 </lokasjon>
             </vegObjekt>
         </vegObjekter>

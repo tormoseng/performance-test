@@ -13,9 +13,7 @@
               <assosiasjon typeId="220597" tempId="-4"/>
           </assosiasjoner>
           <lokasjon>
-              <nettElementer>
                   <linje lenkeId="1125766" fra="0.3" til="0.4"/>
-              </nettElementer>
           </lokasjon>
       </vegObjekt>
       <vegObjekt typeId="297" tempId="-3">
@@ -25,9 +23,7 @@
               </egenskap>
           </egenskaper>
           <lokasjon>
-              <nettElementer>
                   <punkt lenkeId="1125766" posisjon="0.3"/>
-              </nettElementer>
           </lokasjon>
       </vegObjekt>
       <vegObjekt typeId="199" tempId="-4">
@@ -40,9 +36,7 @@
               <assosiasjon typeId="220405" tempId="-5"/>
           </assosiasjoner>
           <lokasjon>
-              <nettElementer>
                   <linje lenkeId="1125766" fra="0.3" til="0.4"/>
-              </nettElementer>
           </lokasjon>
       </vegObjekt>
         <vegObjekt typeId="297" tempId="-5">
@@ -52,9 +46,7 @@
                 </egenskap>
             </egenskaper>
             <lokasjon>
-                <nettElementer>
                     <punkt lenkeId="1125766" posisjon="0.3"/>
-                </nettElementer>
             </lokasjon>
         </vegObjekt>
     </vegObjekter>
